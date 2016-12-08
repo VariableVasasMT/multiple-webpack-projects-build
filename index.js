@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 require('shelljs/global');
+console.log(process.argv);
 var userArgs = process.argv.slice(2);
 var config = {};
 try {

@@ -1,7 +1,8 @@
 #! /usr/bin/env node
 require('shelljs/global');
-console.log(process.argv);
+var shell = require("shelljs");
 var userArgs = process.argv.slice(2);
+cd(process.cwd());
 var config = {};
 try {
     if(userArgs.length > 0) {
@@ -15,7 +16,7 @@ try {
 function checkAndProcessWebpack(path) {
     var lsVal = ls("-l", [path+"webpack.*.js"]);
     if( lsVal.length > 13 ){
-        npm( "run build");
+        shell.exec("npm run build");
 	return true;
     } else {
         return false;
